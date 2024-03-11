@@ -15,7 +15,7 @@ public class CategoryRepository {
     }
 
     public void save(Category category) {
-        categories = Stream.concat(categories.stream(), Stream.of(category)).toList();
+        categories = Stream.concat(categories.stream().filter(c -> c.id == category.id), Stream.of(category)).toList();
     }
 
     public void delete(String id) {
