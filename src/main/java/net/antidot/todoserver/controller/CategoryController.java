@@ -46,12 +46,15 @@ public class CategoryController {
     }
 
     @PutMapping("/categories")
-    public ResponseEntity<Category> updateCategory(@RequestBody WsCategoryUpdate creation) throws URISyntaxException {
+    public ResponseEntity<Category> updateCategory(@RequestBody WsCategoryUpdate update) throws URISyntaxException {
+        if (!categoryRepository.categoryExist(update.id())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Category does not exist");
+        }
 
         Category category = new Category(
-                creation.id(),
-                creation.name(),
-                creation.color()
+                update.id(),
+                update.name(),
+                update.color()
         );
         repository.save(category);
 
