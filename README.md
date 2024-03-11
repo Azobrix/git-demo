@@ -1,0 +1,1 @@
+Ce project a pour but de montrer quelques bonnes pratiques concernant la découpe des commits.
