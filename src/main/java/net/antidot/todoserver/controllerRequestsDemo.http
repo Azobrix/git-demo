@@ -1,0 +1,37 @@
+##### CATEGORIES
+### CREATE CATEGORIES
+POST http://localhost:8080/categories
+Content-Type: application/json
+
+{"name": "Work", "color":  "red"}
+
+
+### LIST CATEGORIES
+GET http://localhost:8080/categories
+Accept: application/json
+
+### DELET CATEGORIES
+DELETE http://localhost:8080/categories/3170f2b8-5ada-4bb8-8017-298532a44aef
+
+##### TASKS
+### CREATE TASKS
+POST http://localhost:8080/tasks
+Content-Type: application/json
+
+{"name": "My task text with category", "categoryId":  "36fb1428-05b0-4dc4-94ab-714804a76572"}
+
+
+### LIST TASKS
+GET http://localhost:8080/tasks
+Accept: application/json
+
+
+### UPDATE TASKS
+PUT http://localhost:8080/tasks/{id}
+Content-Type: application/json
+
+{"name": "My updated task", "status": "DONE", "categoryId": "36fb1428-05b0-4dc4-94ab-714804a76572"}
+
+
+### DELET TASK
+DELETE http://localhost:8080/tasks/{id}
