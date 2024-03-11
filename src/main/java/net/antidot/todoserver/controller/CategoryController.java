@@ -45,6 +45,20 @@ public class CategoryController {
                 .body(category);
     }
 
+    @PutMapping("/categories")
+    public ResponseEntity<Category> updateCategory(@RequestBody WsCategoryUpdate creation) throws URISyntaxException {
+
+        Category category = new Category(
+                creation.id(),
+                creation.name(),
+                creation.color()
+        );
+        repository.save(category);
+
+        return ResponseEntity.created(new URI("/categories/" + category.id()))
+                .body(category);
+    }
+
     @DeleteMapping("/categories/{id}")
     public void deleteCategory(@PathVariable String id) {
         repository.delete(id);
