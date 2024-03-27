@@ -46,12 +46,12 @@ public class CategoryController {
     }
 
     @PutMapping("/categories")
-    public ResponseEntity<Category> updateCategory(@RequestBody WsCategoryUpdate creation) throws URISyntaxException {
+    public ResponseEntity<Category> updateCategory(@RequestBody WsCategoryUpdate update) throws URISyntaxException {
 
         Category category = new Category(
-                creation.id(),
-                creation.name(),
-                creation.color()
+                update.id(),
+                update.name(),
+                update.color()
         );
         repository.save(category);
 
